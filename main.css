@@ -94,3 +94,14 @@ body {
     color: rgb(255, 255, 255);
     border-radius: 7px;
 }
+
+/*
+ * Narrow screens
+ */
+
+ @media (max-width: 40em) {    
+    #search-input {
+        display: block;
+        width: 100%
+    }
+}
