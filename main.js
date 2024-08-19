@@ -8,10 +8,21 @@ function ready(fn) {
 
 function init() {
     const searchBtn = document.querySelector("#search-btn");
+    const pasteBtn = document.querySelector("#paste-btn");
     const searchInput = document.querySelector("#search-input");
 
     searchBtn.addEventListener("click", () => {
         generateLinks(searchInput.value);
+    });
+
+    pasteBtn.addEventListener("click", () => {
+        navigator.clipboard
+            .readText()
+            .then(
+                (clipText) => {
+                    searchInput.value = clipText;
+                    generateLinks(searchInput.value);
+                })
     });
 
     searchInput.addEventListener("keydown", (event) => {
