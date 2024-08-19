@@ -6,7 +6,6 @@ function ready(fn) {
     document.addEventListener('DOMContentLoaded', fn);
 }
 
-
 function init() {
     const searchBtn = document.querySelector("#search-btn");
     const searchInput = document.querySelector("#search-input");
@@ -19,6 +18,13 @@ function init() {
         if (event.key === "Enter") {
             generateLinks(searchInput.value);
         }
+    });
+
+    // Setup light/dark toggle listener
+    toggleButton = document.querySelector("#theme-toggle");
+    toggleButton.addEventListener("click", (e) => {
+        toggleTheme();
+        e.preventDefault();
     });
 }
 
@@ -55,6 +61,60 @@ function generateLinks(input) {
     linksDisp.appendChild(linksCtr);
 }
 
+
+/*
+ * Dark Mode themeing
+ */
+
+function toggleTheme() {
+    if (document.documentElement.getAttribute("data-theme") === "dark") {
+        setTheme("light");
+    } else {
+        setTheme("dark");  
+    }
+}
+
+function setTheme(theme, save = true) {
+    document.documentElement.setAttribute("data-theme", theme);
+    if (save) {
+        localStorage.setItem("theme", theme);
+    }
+
+    const icon = document.querySelector("#theme-toggle");
+    if (icon !== null) {
+        icon.textContent = getThemeIcon(theme);
+    } else {
+        ready(() => {
+            const readyIcon = document.querySelector("#theme-toggle");
+            readyIcon.textContent = getThemeIcon(theme);
+        });
+    }
+}
+
+function getThemeIcon(theme) {
+    if (theme === "light") {
+        return "🌞";
+    } else {
+        return "🌚";
+    }
+}
+
+function restoreTheme() {
+    const currentTheme = localStorage.getItem("theme") ? localStorage.getItem("theme") : null;
+
+    if (currentTheme) {
+        setTheme(currentTheme, false);
+    } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme("dark");
+        }
+    }
+}
+
+
+// Call init when ready
 ready(() => {
     init();
 });
+
+restoreTheme();
