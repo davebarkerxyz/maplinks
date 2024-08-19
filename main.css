@@ -11,8 +11,8 @@
     --bg-color: rgb(30, 30, 30);
     --primary-color: rgb(245, 245, 245);
     --link-color: rgb(245, 245, 245);
-    --link-bg-color: rgb(167, 65, 160);
-    --link-border-color: rgb(255, 116, 116);
+    --link-bg-color: rgb(145, 39, 213);
+    --link-border-color: rgb(100, 53, 109);
     --input-border-color: rgb(210, 210, 210);
 }
 
@@ -80,10 +80,13 @@ body {
 
 #links a:link, #links a:visited, #links a:active {
     border: 1px solid var(--link-border-color);
+    background-color: var(--link-bg-color);
+    box-shadow: 7px 7px var(--link-border-color);
     padding: 1em 0.5em;
-    border-radius: 7px;
+    border-radius: 37px;
     display: block;
     text-align: center;
+    font-weight: bold;
 }
 
 .error {
