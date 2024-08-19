@@ -54,10 +54,10 @@ body {
 #search-btn, #paste-btn {
     font-size: 16px;
     padding: 0.6em;
-    background-color: rgb(45, 84, 214);
+    background-color: rgb(232, 23, 89);
     color: rgb(255, 255, 255);
-    border: 1px solid rgb(45, 84, 214);
-    border-radius: 5px;
+    border: none;
+    border-radius: 14px;
     cursor: pointer;
     line-height: 1.2em;
 }
