@@ -5,7 +5,7 @@
 }
 
 [data-theme="dark"] {
-    --bg: linear-gradient(135deg, rgb(122, 23, 120) 0%, rgb(62, 22, 95) 45%, rgb(13, 32, 119) 100%);
+    --bg: linear-gradient(135deg, rgb(98, 28, 87) 0%, rgb(35, 11, 56) 45%, rgb(24, 30, 60) 100%);
     --primary-color: rgb(245, 245, 245);
     --input-border-color: rgb(210, 210, 210);
 }
